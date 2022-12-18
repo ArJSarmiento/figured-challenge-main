@@ -21,17 +21,17 @@ class ProductController extends Controller
                 ->orderBy('created_at', 'asc')
                 ->get();
 
-            if($products->isEmpty()) {
-                return response()->json([
-                    'message' => 'There are no products available.'
-                ], 400);
-                return Inertia::render('AppliedError', [
-                    'message' => 'There are no products available.'
-                ]);
-            }
-
             $appliedProducts = [];
             $totalPrice = 0;
+
+            if($products->isEmpty()) {
+                return Inertia::render('Applied', [
+                    'applied_products' => $appliedProducts,
+                    'total_price' => $totalPrice,
+                    'errorModal' => true,
+                    'errorMessage' => "There are no products available."
+                ]);
+            }
 
             foreach ($products as $product) {
                 if ($applyQuantity >= $product->quantity) {
@@ -59,14 +59,19 @@ class ProductController extends Controller
 
                     return Inertia::render('Applied', [
                         'applied_products' => $appliedProducts,
-                        'total_price' => $totalPrice
+                        'total_price' => $totalPrice,
+                        'errorModal' => false,
+                        'errorMessage' => ""
                     ]);
                 }
             }
 
             DB::rollBack();
-            return Inertia::render('AppliedError', [
-                'message' => 'The quantity is greater than the total quantity of the products.'
+            return Inertia::render('Applied', [
+                'applied_products' => $appliedProducts,
+                'total_price' => $totalPrice,
+                'errorModal' => true,
+                'errorMessage' => "Desired quantity is not available."
             ]);
         } catch(Exception $e){
             DB::rollBack();
