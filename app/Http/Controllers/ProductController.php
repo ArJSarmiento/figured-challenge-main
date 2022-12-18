@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ApplyProductsRequest;
+use App\Models\Product;
+use Exception;
+use DB;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -21,6 +25,9 @@ class ProductController extends Controller
                 return response()->json([
                     'message' => 'There are no products available.'
                 ], 400);
+                return Inertia::render('AppliedError', [
+                    'message' => 'There are no products available.'
+                ]);
             }
 
             $appliedProducts = [];
@@ -50,17 +57,17 @@ class ProductController extends Controller
                 if ($applyQuantity == 0) {
                     DB::commit();
 
-                    return response()->view('applied', [
+                    return Inertia::render('Applied', [
                         'applied_products' => $appliedProducts,
                         'total_price' => $totalPrice
-                    ], 200);
+                    ]);
                 }
             }
 
             DB::rollBack();
-            return response()->json([
+            return Inertia::render('AppliedError', [
                 'message' => 'The quantity is greater than the total quantity of the products.'
-            ], 400);
+            ]);
         } catch(Exception $e){
             DB::rollBack();
             throw $e;
