@@ -10,8 +10,12 @@ class Product extends Model
     use HasFactory;
     public $table = 'products';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, ,decimal>
+     */
     protected $fillable = [
-        'type',
         'quantity',
         'unit_price'
     ];

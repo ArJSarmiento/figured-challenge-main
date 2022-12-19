@@ -1,6 +1,9 @@
+<!--
+    This Page is used to display the inventory of the products.
+-->
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import BackButton from '@/Components/BackButton.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3'
 
 defineProps({
@@ -14,7 +17,6 @@ const formatPrice = (price) => {
 </script>
 
 <template>
-
     <Head title="Inventory" />
 
     <AuthenticatedLayout>
@@ -24,7 +26,7 @@ const formatPrice = (price) => {
             </h2>
         </template>
 
-        <div class="p-12 overflow-x-scroll">
+        <div class="p-12 overflow-x-scroll flex-col">
             <table class="table-auto w-full">
                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
@@ -53,11 +55,11 @@ const formatPrice = (price) => {
                     </tr>
                 </tbody>
             </table>
-            <Link href="/dashboard" class="mt-6 flex justify-end">
-            <SecondaryButton>
-                Close
-            </SecondaryButton>
-            </Link>
+            <BackButton class="mt-6 float-right p-0" >
+                <Link href="/dashboard" class="w-full h-full">
+                    Close
+                </Link>
+            </BackButton>
         </div>
     </AuthenticatedLayout>
 

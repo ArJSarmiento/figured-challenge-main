@@ -1,3 +1,6 @@
+<!--
+    This Page is used to display the product application menu
+-->
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
@@ -33,11 +36,9 @@ const submit = () => {
                     required autofocus />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Apply
-                </PrimaryButton>
-            </div>
+            <PrimaryButton class="w-full mt-4 justify-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Apply
+            </PrimaryButton>
         </form>
     </AuthenticatedLayout>
 </template>

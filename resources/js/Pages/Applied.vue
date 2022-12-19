@@ -1,6 +1,9 @@
+<!--
+    This component is used to display the summary of the applied products
+-->
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import BackButton from '@/Components/BackButton.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3'
 
 defineProps({
@@ -40,26 +43,26 @@ const formatPrice = (price) => {
                     <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-left">Price/unit</div>
+                                <div class="font-semibold text-center">Price/unit</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-left">Quantity</div>
+                                <div class="font-semibold text-center">Quantity</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-left">Price</div>
+                                <div class="font-semibold text-center">Price</div>
                             </th>
                         </tr>
                     </thead>
                     <tbody class="text-sm divide-y divide-gray-100">
                         <tr v-for="product in applied_products" :key="product.id">
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-left"> ${{ formatPrice(product.price) }}</div>
+                                <div class="text-center"> ${{ formatPrice(product.price) }}</div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-left font-medium text-green-500">{{ product.quantity }}</div>
+                                <div class="text-center font-medium text-green-500">{{ product.quantity }}</div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-left font-medium text-green-500">${{ formatPrice(product.total_price)
+                                <div class="text-center font-medium text-green-500">${{ formatPrice(product.total_price)
                                 }}</div>
                             </td>
                         </tr>
@@ -76,11 +79,11 @@ const formatPrice = (price) => {
                 </p>
 
             </div>
-            <Link href="/dashboard" class="mt-6 flex justify-end">
-            <SecondaryButton>
-                Close
-            </SecondaryButton>
-            </Link>
+            <BackButton class="mt-6 float-right p-0" >
+                <Link href="/dashboard" class="w-full h-full">
+                    Close
+                </Link>
+            </BackButton>
         </div>
     </AuthenticatedLayout>
 
