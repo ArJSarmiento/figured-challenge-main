@@ -26,7 +26,7 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="py-12 px-12">
             <div>
-                <InputLabel for="quantity" value="Quantity" />
+                <InputLabel for="quantity" value="Product Quantity" class="text-lg"/>
 
                 <TextInput
                     id="quantity"
