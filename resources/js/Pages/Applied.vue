@@ -43,26 +43,26 @@ const formatPrice = (price) => {
                     <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Price/unit</div>
+                                <div class="font-semibold text-center text-base">Price/unit</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Quantity</div>
+                                <div class="font-semibold text-center text-base">Quantity</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Price</div>
+                                <div class="font-semibold text-center text-base">Price</div>
                             </th>
                         </tr>
                     </thead>
                     <tbody class="text-sm divide-y divide-gray-100">
                         <tr v-for="product in applied_products" :key="product.id">
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-center"> ${{ formatPrice(product.price) }}</div>
+                                <div class="text-center text-base"> ${{ formatPrice(product.price) }}</div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-center font-medium text-green-500">{{ product.quantity }}</div>
+                                <div class="text-center font-medium text-base text-green-500">{{ product.quantity }}</div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-center font-medium text-green-500">${{ formatPrice(product.total_price)
+                                <div class="text-center font-medium text-base text-green-500">${{ formatPrice(product.total_price)
                                 }}</div>
                             </td>
                         </tr>
@@ -71,7 +71,7 @@ const formatPrice = (price) => {
             </div>
             <div v-else>
 
-                <h1 class="text-4xl font-medium text-gray-900">
+                <h1 class="text-4xl font-medium text-base text-gray-900">
                     Error
                 </h1>
                 <p class="mt-3 text-m text-gray-600">

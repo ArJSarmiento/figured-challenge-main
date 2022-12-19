@@ -61,7 +61,7 @@ class ProductController extends Controller
 
             //  Loop through the products
             foreach ($products as $product) {
-                if ($applyQuantity >= $product->quantity) {
+                if ($applyQuantity > $product->quantity) {
                     // Add the product details to the applied products array
                     $appliedProducts[] = [
                         'quantity' => $product->quantity,
