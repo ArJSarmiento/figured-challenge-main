@@ -36,7 +36,7 @@ const submit = () => {
                     required autofocus />
             </div>
 
-            <PrimaryButton class="w-full mt-4 justify-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton class="w-full mt-4 py-3 justify-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Apply
             </PrimaryButton>
         </form>
