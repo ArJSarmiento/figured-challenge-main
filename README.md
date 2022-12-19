@@ -25,10 +25,11 @@ php artisan serve
 
 ```
 
-### Frontend
+### Vue3
 The project uses Vue3 with Vite, Inertia and TailWindCSS. Run the following commands on a separate terminal to set up.
 ```bash
 
+# install vue packages
 npm install
 
 # This runs the Vite development server that provides Hot Module Replacement is located at localhost:3000.
@@ -37,6 +38,12 @@ npm run dev
 
 ## UI/UX
 You may now visit the site in the browser in http://127.0.0.1:8000/
+
+You may register for a new account or use the test credentials below
+```
+Email: test@example.com
+Password:  password
+```
 
 ## Testing
 On the terminal, run `php artisan test`.
