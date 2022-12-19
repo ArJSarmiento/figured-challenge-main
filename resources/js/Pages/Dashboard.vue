@@ -17,6 +17,7 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
@@ -26,17 +27,10 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="py-12 px-12">
             <div>
-                <InputLabel for="quantity" value="Product Quantity" class="text-lg"/>
+                <InputLabel for="quantity" value="Product Quantity" class="text-lg" />
 
-                <TextInput
-                    id="quantity"
-                    type="number"
-                    min="0"
-                    class="mt-1 block w-full"
-                    v-model="form.quantity"
-                    required
-                    autofocus
-                />
+                <TextInput id="quantity" type="number" min="0" class="mt-1 block w-full" v-model="form.quantity"
+                    required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">

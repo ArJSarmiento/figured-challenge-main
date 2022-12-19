@@ -1,7 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import  { Head, Link }  from '@inertiajs/inertia-vue3'
+import { Head, Link } from '@inertiajs/inertia-vue3'
 
 defineProps({
     total_price: Number,
@@ -10,13 +10,14 @@ defineProps({
     errorMessage: String,
 });
 
-const formatPrice =  (price) => {
+const formatPrice = (price) => {
     return parseFloat(price).toFixed(2);
 }
 
 </script>
 
 <template>
+
     <Head title="Summary" />
 
     <AuthenticatedLayout>
@@ -29,8 +30,8 @@ const formatPrice =  (price) => {
         <div class="p-12">
             <div v-if="!isError">
                 <h1 class="text-4xl font-bold text-green-500">
-                   ${{ formatPrice(total_price) }}
-                   <span class="text-xl text-gray-400">
+                    ${{ formatPrice(total_price) }}
+                    <span class="text-xl text-gray-400">
                         in total
                     </span>
                 </h1>
@@ -58,7 +59,8 @@ const formatPrice =  (price) => {
                                 <div class="text-left font-medium text-green-500">{{ product.quantity }}</div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
-                                <div class="text-left font-medium text-green-500">${{ formatPrice(product.total_price) }}</div>
+                                <div class="text-left font-medium text-green-500">${{ formatPrice(product.total_price)
+                                }}</div>
                             </td>
                         </tr>
                     </tbody>
@@ -75,9 +77,9 @@ const formatPrice =  (price) => {
 
             </div>
             <Link href="/dashboard" class="mt-6 flex justify-end">
-                <SecondaryButton >
-                    Close
-                </SecondaryButton>
+            <SecondaryButton>
+                Close
+            </SecondaryButton>
             </Link>
         </div>
     </AuthenticatedLayout>

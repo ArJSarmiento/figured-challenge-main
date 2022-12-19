@@ -10,6 +10,15 @@ use Inertia\Inertia;
 
 class ProductController extends Controller
 {
+    public function getInventory()
+    {
+        $products = Product::orderBy('created_at')->get();
+
+        return Inertia::render('Inventory', [
+            'products' => $products,
+        ]);
+    }
+
     public function applyProducts(ApplyProductsRequest $request)
     {
         $validated = $request->validated();
