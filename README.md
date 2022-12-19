@@ -3,7 +3,7 @@
 ## Setup
 
 ### Laravel
-Clone this repository and run the following commands below:
+Clone this repository and run the following commands:
 ```bash
 cd ./figured-challenge-main
 
@@ -16,11 +16,11 @@ cp .env.example .env
 # Generate your local encryption key
 php artisan key:generate
 
-# Make sure to create your local database named `figured` before running the migration command.
-# This will seed the database with initial inventory data
+# Create a local database named `figured_challenge_main` before running the migration command.
+# Also seeds the database with the supplied CSV file
 php artisan migrate:fresh --seed
 
-# You will need to open two terminals to serve both frontend and backend
+# Runs the backend
 php artisan serve
 
 ```
@@ -28,6 +28,9 @@ php artisan serve
 ### Vue3
 The project uses Vue3 with Vite, Inertia and TailWindCSS. Run the following commands on a separate terminal to set up.
 ```bash
+# make sure you are using Node v16 or up
+# if not change version with nvm 
+nvm use 16
 
 # install vue packages
 npm install
@@ -39,7 +42,7 @@ npm run dev
 ## UI/UX
 You may now visit the site in the browser in http://127.0.0.1:8000/
 
-You may register for a new account or use the test credentials below
+You may register for a new account or use the seeded test credentials below
 ```
 Email: test@example.com
 Password:  password
