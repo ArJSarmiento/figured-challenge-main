@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('initial_quantity')->default(0);
             $table->integer('quantity')->default(0);
             $table->decimal('unit_price')->default(0)->nullable();
         });

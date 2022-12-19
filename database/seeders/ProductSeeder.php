@@ -88,6 +88,7 @@ class ProductSeeder extends Seeder
                 DB::table('products')->insert([
                     "created_at" => Carbon::createFromFormat('d/m/Y', $row[0])->toDateTimeString(),
                     "updated_at" => Carbon::createFromFormat('d/m/Y', $row[0])->toDateTimeString(),
+                    "initial_quantity" => $quantity,
                     "quantity" => $quantity,
                     "unit_price" => $price
                 ]);

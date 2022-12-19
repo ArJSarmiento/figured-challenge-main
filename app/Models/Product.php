@@ -16,6 +16,7 @@ class Product extends Model
      * @var array<int, ,decimal>
      */
     protected $fillable = [
+        'initial_quantity',
         'quantity',
         'unit_price'
     ];
