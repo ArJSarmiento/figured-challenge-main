@@ -1,4 +1,4 @@
-## Figured Code Challenge
+# Figured Code Challenge
 
 ## Setup
 
@@ -16,9 +16,13 @@ cp .env.example .env
 # Generate your local encryption key
 php artisan key:generate
 
-# Create a local database named `figured_challenge_main` before running the migration command.
-# Also seeds the database with the supplied CSV file
-php artisan migrate:fresh --seed
+# Make sure the development server is on
+# Makes the database migrations
+# Choose `yes` when prompted to create database
+php artisan migrate
+
+# Seeds the database with the supplied CSV file
+php artisan db:seed
 
 # Runs the backend
 php artisan serve
@@ -35,11 +39,11 @@ nvm use 16
 # install vue packages
 npm install
 
-# This runs the Vite development server that provides Hot Module Replacement is located at localhost:3000.
+# This runs the Vite development server that provides Hot Module Replacement located at localhost:3000.
 npm run dev
 ```
 
-## UI/UX
+## Application
 You may now visit the site in the browser in http://127.0.0.1:8000/
 
 You may register for a new account or use the seeded test credentials below
@@ -47,6 +51,8 @@ You may register for a new account or use the seeded test credentials below
 Email: test@example.com
 Password:  password
 ```
+## Demo
+<a href="https://www.youtube.com/watch?v=XrOBDaQPo8Q" target="_blank"><img src="https://img.youtube.com/vi/XrOBDaQPo8Q/hqdefault.jpg" ></a>
 
 ## Testing
 On the terminal, run `php artisan test`.
